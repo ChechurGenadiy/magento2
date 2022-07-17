@@ -1,30 +1,73 @@
 <?php
-/**
- * Public alias for the application entry point
- *
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
 
-use Magento\Framework\App\Bootstrap;
+//Type string
+$productName = "iPhone 3e44"; # 'iPhone 3e44';
+//Type integer (int)
+$productVersion = 4;
+//Type float
+$productSubversion = 13.234;
+//Type array
+$availableColors = ["Yellow", "Green", "Black"];
+//Type array
+$availablePrograms = [
+    3 => [
+        "Chrome",
+        "Safari",
+    ],
+    4 => [
+        "GoogleMaps",
+        "shguihgorh",
+        "esghuighrog",
+    ],
+    5 => [
+        "Maps",
+        "OPpera",
+        "Viber" => [
+            "Viber CE",
+            "Viber EE",
+        ],
+        "Some 1",
+        "Some 2"
+    ],
+];
+//Type boolean
+$isAvailable = false; #false
 
-try {
-    require __DIR__ . '/../app/bootstrap.php';
-} catch (\Exception $e) {
-    echo <<<HTML
-<div style="font:12px/1.35em arial, helvetica, sans-serif;">
-    <div style="margin:0 0 25px 0; border-bottom:1px solid #ccc;">
-        <h3 style="margin:0;font-size:1.7em;font-weight:normal;text-transform:none;text-align:left;color:#2f2f2f;">
-        Autoload error</h3>
-    </div>
-    <p>{$e->getMessage()}</p>
-</div>
-HTML;
-    http_response_code(500);
-    exit(1);
+
+#######################################################################################################################
+
+$variable = 1 + 2 / 3 * 4;
+$variable /= 2; # => $variable = $variable / 2;
+$variable -= 5; # => $variable = $variable - 5;
+$variable++; # => $variable = $variable + 1;
+$variable--; # => $variable = $variable - 1;
+
+
+
+#######################################################################################################################
+
+//for ($iterator = 1; $iterator <= 10; $iterator++) {
+//    echo "Current iterator equals " . $iterator . '<br>';
+//}
+
+#######################################################################################################################
+
+//echo $availableColors[2];
+
+#echo $availablePrograms[5]['Viber'][0];
+#var_dump($availablePrograms[5]);
+
+#######################################################################################################################
+
+//foreach ($availablePrograms as $key => $availableColorValue) {
+//    echo "Current foreach value: " . $availableColorValue . ', with key: ' . $key . '<br>';
+//}
+
+#######################################################################################################################
+
+function getSomeSum(int $leftParam, int $rightParam): int
+{
+    return $leftParam + $rightParam;
 }
 
-$bootstrap = Bootstrap::create(BP, $_SERVER);
-/** @var \Magento\Framework\App\Http $app */
-$app = $bootstrap->createApplication(\Magento\Framework\App\Http::class);
-$bootstrap->run($app);
+echo getSomeSum(4, 9);
